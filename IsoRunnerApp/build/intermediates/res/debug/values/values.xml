@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- From: file:/D:/Program%20Files/AndroidStudio/IsoRunnerApp/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="app_name">Runner</string>
+    <!-- From: file:/D:/Program%20Files/AndroidStudio/IsoRunnerApp/res/values/styles.xml -->
+    <eat-comment/>
+    <style name="fragment_text">
+        <item name="android:textColor">#ffacacac</item>
+        <item name="android:textSize">25sp</item>
+    </style>
+</resources>

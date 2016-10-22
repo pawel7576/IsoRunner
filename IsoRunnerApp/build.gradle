@@ -1,0 +1,61 @@
+
+
+apply plugin: 'android'
+
+configurations {
+    provided
+    compile.exclude module: 'support-v4'
+}
+
+sourceSets {
+    main {
+        compileClasspath += configurations.provided
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile 'com.specyci:residemenu:1.6+'
+    compile 'com.squareup.retrofit2:retrofit:2.1.0'
+
+}
+
+android {
+    compileSdkVersion 21
+    buildToolsVersion "21.1.1"
+
+    dexOptions {
+        jumboMode = true
+    }
+
+    defaultConfig {
+        minSdkVersion 9
+        targetSdkVersion 21
+    }
+    
+    sourceSets {
+        main {
+            manifest.srcFile 'AndroidManifest.xml'
+            java.srcDirs = ['src']
+            res.srcDirs = ['res']
+            assets.srcDirs = ['assets']
+            aidl.srcDirs = ['src']
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+}
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:1.0.0'
+    }
+}
+
+allprojects {
+    repositories {
+        mavenCentral()
+    }
+}

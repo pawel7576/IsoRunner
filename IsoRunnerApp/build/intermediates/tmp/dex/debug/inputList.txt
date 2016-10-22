@@ -1,0 +1,4 @@
+D:\Program Files\AndroidStudio\RunnerApp\build\intermediates\classes\debug
+D:\Program Files\AndroidStudio\RunnerApp\build\intermediates\pre-dexed\debug\classes-88d6829a41f616fac5ecbfcc291f74762104420c.jar
+D:\Program Files\AndroidStudio\RunnerApp\build\intermediates\pre-dexed\debug\nineoldandroids-library-2.4.0-34522b0a03f7414439e67a383d89c7a0ebcf0b3f.jar
+D:\Program Files\AndroidStudio\RunnerApp\build\intermediates\pre-dexed\debug\android-support-v4-bbeceb7e3c398b5c7581248bbe4fe4990de4991e.jar
