@@ -1,0 +1,79 @@
+
+
+apply plugin: 'android'
+
+configurations {
+    all*.exclude group: 'com.android.support', module: 'support-v4'
+}
+//configurations {
+//    provided
+////    all*.exclude group: 'com.android.support', module: 'support-v4'
+////    compile.exclude module: 'xD'
+////    compile.exclude module: 'support-v4'
+//}
+//
+//sourceSets {
+//    main {
+//        compileClasspath += configurations.provided
+//    }
+//}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile 'com.specyci:residemenu:1.6+'
+    compile 'com.squareup.retrofit2:retrofit:2.1.0'
+    compile 'com.squareup.retrofit2:converter-gson:2.0.2'
+    compile 'com.android.support:support-v4:23.0.3'
+    compile 'com.android.support:appcompat-v7:23.4.0'
+    compile 'com.android.support:multidex:1.0.1'
+    compile 'com.android.support:recyclerview-v7:23.4.0'
+}
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion "23.0.3"
+
+    dexOptions {
+        jumboMode = true
+    }
+
+    defaultConfig {
+        minSdkVersion 16
+        targetSdkVersion 23
+    }
+    
+    sourceSets {
+        main {
+            manifest.srcFile 'AndroidManifest.xml'
+            java.srcDirs = ['src']
+            res.srcDirs = ['res']
+            assets.srcDirs = ['assets']
+            aidl.srcDirs = ['src']
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+}
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:2.1.2'
+    }
+}
+
+allprojects {
+    repositories {
+        mavenCentral()
+    }
+}
+
+//subprojects {
+//    configurations.all {
+//        resolutionStrategy {
+//            // https://github.com/facebook/react-native/issues/6152
+//            force 'com.android.support:support-v4:23.0.1'
+//        }
+//    }
+//}

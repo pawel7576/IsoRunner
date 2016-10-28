@@ -1,2 +1,3 @@
-IsoRunnerApp/build/*
-IsoRunnerApp/
+IsoRunnerApp/build/
+IsoRunnerApp/.idea/
+IsoRunnerApp/.gradle/
