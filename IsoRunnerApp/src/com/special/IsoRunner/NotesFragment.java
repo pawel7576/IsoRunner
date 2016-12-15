@@ -10,16 +10,30 @@ import android.widget.*;
 import java.util.ArrayList;
 
 
-public class CalendarFragment extends Fragment {
+public class NotesFragment extends Fragment {
 
     private View parentView;
     private ListView listView;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        parentView = inflater.inflate(R.layout.calendar, container, false);
+
+        parentView = inflater.inflate(R.layout.notes, container, false);
+
+
+        Button button = (Button) parentView.findViewById(R.id.button_send);
+        button.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                // Do something in response to button click
+            }
+        });
+
+
         listView   = (ListView) parentView.findViewById(R.id.listView);
         initView();
+
+
+
         return parentView;
     }
 
@@ -59,4 +73,6 @@ public class CalendarFragment extends Fragment {
         calendarList.add("Christmas Day");
         return calendarList;
     }
+
+
 }

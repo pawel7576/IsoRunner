@@ -3,7 +3,7 @@ package com.special.IsoRunner.ResideMenuItem;
 import android.content.Context;
 import android.support.v4.app.Fragment;
 
-import com.special.IsoRunner.CalendarFragment;
+import com.special.IsoRunner.NotesFragment;
 import com.special.IsoRunner.DiaryTrainingFragment;
 import com.special.IsoRunner.HomeFragment;
 import com.special.IsoRunner.ChatFragment;
@@ -22,7 +22,7 @@ public class ResideMenuItemsProvider {
     public static String mTrainingAnalyzer = "Analyzer";
     public static String mMap = "Map";
     public static String mChat = "Chat";
-    public static String mCalendar = "Calendar";
+    public static String mNotes = "Notes";
     public static String mSettings = "Settings";
 
 
@@ -37,7 +37,7 @@ public class ResideMenuItemsProvider {
     }
     public static ResideMenuItemExtended[] getRightItems(Context context) {
         return new ResideMenuItemExtended[] {
-            new ResideMenuItemExtended(context, R.drawable.icon_calendar, mCalendar),
+            new ResideMenuItemExtended(context, R.drawable.icon_calendar, mNotes),
             new ResideMenuItemExtended(context, R.drawable.icon_settings, mSettings)
         };
     }
@@ -54,8 +54,8 @@ public class ResideMenuItemsProvider {
             return(new MapFragment());
         }else if (identifier.equals(mChat)){
             return(new ChatFragment());
-        }else if (identifier.equals(mCalendar)){
-            return(new CalendarFragment());
+        }else if (identifier.equals(mNotes)){
+            return(new NotesFragment());
         }else if (identifier.equals(mSettings)){
             return(new SettingsFragment());
         }
