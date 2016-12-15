@@ -2,6 +2,7 @@ package com.special.IsoRunner;
 
 import com.special.IsoRunner.models.Event;
 import com.special.IsoRunner.models.News;
+import com.special.IsoRunner.models.Note;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -82,4 +83,34 @@ public class GlobalDataProvider {
         return events;
     }
 
+    static List<Note> getNotes() {
+
+        List<Note> news = new ArrayList<>();
+
+        Note news1 = new Note("1","note daslk djas alskdj ");
+        news.add(news1);
+
+        news1 = new Note("2","note daslk djas alskdj ");
+        news.add(news1);
+
+        news1 = new Note("3","Proponowane zmiany zakładają m.in., że powstanie grupa stałych korespondentów parlamentarnych. Stali korespondenci parlamentarni mieliby otrzymać specjalne przepustki ważne do końca kadencji, gwarantujące nieograniczony dostęp do Centrum Medialnego oraz głównego gmachu Sejmu i Senatu. Co ważne, wyboru dziennikarzy na stałe oddelegowanych do Sejmu dokonywałyby redakcje. Zgodnie z założeniem, każda z nich miałaby możliwość wyznaczenia dwóch takich osób, pracujących na zmiany. Niewykluczone także, że duże media, składające się z kilku redakcji będą liczone jako jedna. ");
+        news.add(news1);
+
+        news1 = new Note("4","note daslk djas alskdj ");
+        news.add(news1);
+
+        news1 = new Note("5","note daslk djas alskdj ");
+        news.add(news1);
+
+        news1 = new Note("6","- PiS nie boi się dziennikarzy w Sejmie. To nie PiS ustala zasady, czy będzie ustalało zasady pobytu dziennikarzy w Sejmie i z tego, co wiem, wszystkie redakcje mają być reprezentowane w parlamencie. Nie uważam, aby działo się coś złego, aby prawa dziennikarzy były ograniczane – mówiła rzeczniczka PiS Beata Mazurek na porannym briefingu w Sejmie. Jak stwierdziła, „nie ma mowy, abyście byli odcięci od informacji”. – To propozycja Kancelarii Sejmu, nie PiS – dodała.  ");
+        news.add(news1);
+
+        news1 = new Note("7","note daslk djas alskdj ");
+        news.add(news1);
+
+        news1 = new Note("8","note daslk djas alskdj ");
+        news.add(news1);
+
+        return news;
+    }
 }

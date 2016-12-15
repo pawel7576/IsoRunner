@@ -4,24 +4,44 @@
               android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="match_parent">
-    <EditText
-        android:id="@+id/notesText"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:hint="Write your note"
-        android:inputType="textCapSentences|textMultiLine" />
 
-    <Button xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/button_send"
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="#63B949"
+        android:layout_height="150dp"
+        android:orientation="horizontal"
+        android:weightSum="10">
+
+        <EditText
+            android:id="@+id/notesText"
+            android:layout_weight="7"
+            android:layout_width="0dp"
+            android:layout_height="150dp"
+            android:hint="Write your note"
+            android:inputType="textCapSentences|textMultiLine" />
+
+        <Button xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/button_send"
+            android:layout_weight="3"
+            android:layout_width="0dp"
+            android:layout_height="145dp"
+            android:background="@drawable/add_note_button_shape"
+            android:textColor="#FFFFFF"
+            android:text="ADD NOTE" />
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="LIST NOTES"
+        android:gravity="center"
+        android:textSize="18sp"
         android:textColor="#FFFFFF"
-        android:text="ADD NOTE" />
-
+        android:background="#7f7fff"
+        />
 
     <ListView
-            android:id="@+id/listView"
+            android:id="@+id/listNotes"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
 </LinearLayout>

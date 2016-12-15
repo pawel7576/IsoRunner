@@ -7,72 +7,82 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.*;
 
+import com.special.IsoRunner.adapters.EventsListViewAdapter;
+import com.special.IsoRunner.adapters.NotesListViewAdapter;
+
 import java.util.ArrayList;
 
 
 public class NotesFragment extends Fragment {
 
     private View parentView;
-    private ListView listView;
 
+    private ListView listNotes ;
+    private Button buttonAddNote;
+    private EditText editText;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         parentView = inflater.inflate(R.layout.notes, container, false);
 
+        editText = (EditText) parentView.findViewById(R.id.notesText);
 
-        Button button = (Button) parentView.findViewById(R.id.button_send);
-        button.setOnClickListener(new View.OnClickListener() {
+        buttonAddNote = (Button) parentView.findViewById(R.id.button_send);
+        buttonAddNote.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                // Do something in response to button click
+                String textNoteToAdd = String.valueOf(editText.getText());
+                //TODO call server, add note
             }
         });
 
 
-        listView   = (ListView) parentView.findViewById(R.id.listView);
-        initView();
 
-
+        listNotes = (ListView) parentView.findViewById(R.id.listNotes);
+        NotesListViewAdapter eventsAdapter = new NotesListViewAdapter(getActivity().getBaseContext(), GlobalDataProvider.getNotes());
+        listNotes.setAdapter(eventsAdapter);
 
         return parentView;
     }
 
-    private void initView(){
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(
-                getActivity(),
-                android.R.layout.simple_list_item_1,
-                getCalendarData());
-        listView.setAdapter(arrayAdapter);
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Toast.makeText(getActivity(), "Clicked item!", Toast.LENGTH_LONG).show();
-            }
-        });
-    }
 
-    private ArrayList<String> getCalendarData(){
-        ArrayList<String> calendarList = new ArrayList<String>();
-        calendarList.add("New Year's Day");
-        calendarList.add("St. Valentine's Day");
-        calendarList.add("Easter Day");
-        calendarList.add("April Fool's Day");
-        calendarList.add("Mother's Day");
-        calendarList.add("Memorial Day");
-        calendarList.add("National Flag Day");
-        calendarList.add("Father's Day");
-        calendarList.add("Independence Day");
-        calendarList.add("Labor Day");
-        calendarList.add("Columbus Day");
-        calendarList.add("Halloween");
-        calendarList.add("All Soul's Day");
-        calendarList.add("Veterans Day");
-        calendarList.add("Thanksgiving Day");
-        calendarList.add("Election Day");
-        calendarList.add("Forefather's Day");
-        calendarList.add("Christmas Day");
-        return calendarList;
-    }
+
+
+//    private void initView(){
+////        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(
+////                getActivity(),
+////                android.R.layout.simple_list_item_1,
+////                getCalendarData());
+////        listView.setAdapter(arrayAdapter);
+////        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+////            @Override
+////            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+////                Toast.makeText(getActivity(), "Clicked item!", Toast.LENGTH_LONG).show();
+////            }
+////        });
+//    }
+
+//    private ArrayList<String> getCalendarData(){
+//        ArrayList<String> calendarList = new ArrayList<String>();
+//        calendarList.add("New Year's Day");
+//        calendarList.add("St. Valentine's Day");
+//        calendarList.add("Easter Day");
+//        calendarList.add("April Fool's Day");
+//        calendarList.add("Mother's Day");
+//        calendarList.add("Memorial Day");
+//        calendarList.add("National Flag Day");
+//        calendarList.add("Father's Day");
+//        calendarList.add("Independence Day");
+//        calendarList.add("Labor Day");
+//        calendarList.add("Columbus Day");
+//        calendarList.add("Halloween");
+//        calendarList.add("All Soul's Day");
+//        calendarList.add("Veterans Day");
+//        calendarList.add("Thanksgiving Day");
+//        calendarList.add("Election Day");
+//        calendarList.add("Forefather's Day");
+//        calendarList.add("Christmas Day");
+//        return calendarList;
+//    }
 
 
 }
