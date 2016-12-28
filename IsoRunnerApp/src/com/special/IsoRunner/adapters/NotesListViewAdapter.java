@@ -9,6 +9,7 @@ import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.special.IsoRunner.NotesFragment;
 import com.special.IsoRunner.R;
 import com.special.IsoRunner.models.News;
 import com.special.IsoRunner.models.Note;
@@ -21,11 +22,14 @@ import java.util.List;
 
 public class NotesListViewAdapter extends BaseAdapter {
 
+    NotesFragment mNotesFragment;
     List<Note> notes;
     Context context;
-    public NotesListViewAdapter(Context context, List<Note> notes) {
+
+    public NotesListViewAdapter(NotesFragment notesFragment, Context context, List<Note> notes) {
         this.notes = notes;
         this.context = context;
+        this.mNotesFragment = notesFragment;
     }
 
 
@@ -59,7 +63,7 @@ public class NotesListViewAdapter extends BaseAdapter {
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 String idNoteToRemove = (String) v.getTag();
-                //TODO call remove note
+                mNotesFragment.removeNoteWithId(idNoteToRemove);
             }
         });
 

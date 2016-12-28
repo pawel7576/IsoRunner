@@ -28,61 +28,44 @@ public class NotesFragment extends Fragment {
         editText = (EditText) parentView.findViewById(R.id.notesText);
 
         buttonAddNote = (Button) parentView.findViewById(R.id.button_send);
-        buttonAddNote.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                String textNoteToAdd = String.valueOf(editText.getText());
-                //TODO call server, add note
-            }
-        });
 
-
+        buttonAddNote.setOnClickListener(new NoteFragmentListener(this));
 
         listNotes = (ListView) parentView.findViewById(R.id.listNotes);
-        NotesListViewAdapter eventsAdapter = new NotesListViewAdapter(getActivity().getBaseContext(), GlobalDataProvider.getNotes());
-        listNotes.setAdapter(eventsAdapter);
 
+        this.loadData();
         return parentView;
     }
 
+    private void loadData() {
+        NotesListViewAdapter eventsAdapter = new NotesListViewAdapter(this, getActivity().getBaseContext(), GlobalDataProvider.getNotes());
+        listNotes.setAdapter(eventsAdapter);
+        //TODO call get notes
+    }
 
+    public void removeNoteWithId(String id) {
+        int i = 0;
+        //TODO call to remove
+    }
 
+    public void addNoteWithText(String text) {
+        int i = 0;
+        //TODO call to add
+    }
 
-//    private void initView(){
-////        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(
-////                getActivity(),
-////                android.R.layout.simple_list_item_1,
-////                getCalendarData());
-////        listView.setAdapter(arrayAdapter);
-////        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-////            @Override
-////            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-////                Toast.makeText(getActivity(), "Clicked item!", Toast.LENGTH_LONG).show();
-////            }
-////        });
-//    }
+    public class NoteFragmentListener implements View.OnClickListener
+    {
+        NotesFragment mNoteFragment;
+        public NoteFragmentListener(NotesFragment noteFragment) {
+            this.mNoteFragment = noteFragment;
+        }
 
-//    private ArrayList<String> getCalendarData(){
-//        ArrayList<String> calendarList = new ArrayList<String>();
-//        calendarList.add("New Year's Day");
-//        calendarList.add("St. Valentine's Day");
-//        calendarList.add("Easter Day");
-//        calendarList.add("April Fool's Day");
-//        calendarList.add("Mother's Day");
-//        calendarList.add("Memorial Day");
-//        calendarList.add("National Flag Day");
-//        calendarList.add("Father's Day");
-//        calendarList.add("Independence Day");
-//        calendarList.add("Labor Day");
-//        calendarList.add("Columbus Day");
-//        calendarList.add("Halloween");
-//        calendarList.add("All Soul's Day");
-//        calendarList.add("Veterans Day");
-//        calendarList.add("Thanksgiving Day");
-//        calendarList.add("Election Day");
-//        calendarList.add("Forefather's Day");
-//        calendarList.add("Christmas Day");
-//        return calendarList;
-//    }
-
+        @Override
+        public void onClick(View v)
+        {
+            String textNoteToAdd = String.valueOf(editText.getText());
+            mNoteFragment.addNoteWithText(textNoteToAdd);
+        }
+    };
 
 }
