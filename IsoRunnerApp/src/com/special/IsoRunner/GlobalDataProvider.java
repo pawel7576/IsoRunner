@@ -1,5 +1,6 @@
 package com.special.IsoRunner;
 
+import com.special.IsoRunner.models.BackgroundImageInfo;
 import com.special.IsoRunner.models.Event;
 import com.special.IsoRunner.models.News;
 import com.special.IsoRunner.models.Note;
@@ -112,5 +113,20 @@ public class GlobalDataProvider {
         news.add(news1);
 
         return news;
+    }
+
+    public static List<BackgroundImageInfo> getBackgroundImagesList() {
+        List<BackgroundImageInfo> images = new ArrayList<>();
+
+        BackgroundImageInfo news1 = new BackgroundImageInfo("Runner",R.drawable.background_main_menu);
+        images.add(news1);
+
+        news1 = new BackgroundImageInfo("Forest",R.drawable.menu_background);
+        images.add(news1);
+
+        news1 = new BackgroundImageInfo("Fire",R.drawable.menu_background); //TODO add new background image
+        images.add(news1);
+
+        return images;
     }
 }

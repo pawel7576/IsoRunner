@@ -17,6 +17,8 @@ public class MenuActivity extends FragmentActivity implements View.OnClickListen
     private ResideMenu resideMenu;
     private MenuActivity mContext;
 
+    public int settingsChoosenImage;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,6 +35,7 @@ public class MenuActivity extends FragmentActivity implements View.OnClickListen
         resideMenu = new ResideMenu(this);
 //        resideMenu.setUse3D(true);
         resideMenu.setBackground(R.drawable.background_main_menu);
+        settingsChoosenImage = 0;
         resideMenu.attachToActivity(this);
         resideMenu.setMenuListener(menuListener);
         resideMenu.setScaleValue(0.6f);         //valid scale factor is between 0.0f and 1.0f. leftmenu'width is 150dip.
@@ -60,6 +63,10 @@ public class MenuActivity extends FragmentActivity implements View.OnClickListen
                 resideMenu.openMenu(ResideMenu.DIRECTION_RIGHT);
             }
         });
+    }
+
+    public void setBackgroundImage(int imageResrouce) {
+        resideMenu.setBackground(imageResrouce);
     }
 
     private void addToMenu(ResideMenuItemExtended[] leftItems, int directionLeft) {
