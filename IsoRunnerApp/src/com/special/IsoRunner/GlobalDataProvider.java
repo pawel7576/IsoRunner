@@ -1,6 +1,7 @@
 package com.special.IsoRunner;
 
 import com.special.IsoRunner.models.BackgroundImageInfo;
+import com.special.IsoRunner.models.ChatMessage;
 import com.special.IsoRunner.models.Event;
 import com.special.IsoRunner.models.News;
 import com.special.IsoRunner.models.Note;
@@ -115,7 +116,7 @@ public class GlobalDataProvider {
         return news;
     }
 
-    public static List<BackgroundImageInfo> getBackgroundImagesList() {
+    static List<BackgroundImageInfo> getBackgroundImagesList() {
         List<BackgroundImageInfo> images = new ArrayList<>();
 
         BackgroundImageInfo news1 = new BackgroundImageInfo("Runner",R.drawable.background_main_menu);
@@ -128,5 +129,47 @@ public class GlobalDataProvider {
         images.add(news1);
 
         return images;
+    }
+
+    public static List<ChatMessage> getChatMessageListList() {
+        List<ChatMessage> chatMessages = new ArrayList<>();
+
+        ChatMessage chatMes = new ChatMessage("Runner","Hahaha xD");
+        chatMessages.add(chatMes);
+
+        chatMes = new ChatMessage("Patrycja","Siemano, co tam u ciebie");
+        chatMessages.add(chatMes);
+
+        chatMes = new ChatMessage("Spencer","Elegancko, jazda, jazda.");
+        chatMessages.add(chatMes);
+
+        chatMes = new ChatMessage("Piter","Kto chetny pobiegac potem? Bede czekal w parku oliwskim o 19.");
+        chatMessages.add(chatMes);
+
+        chatMes = new ChatMessage("Ilona","Dzisiaj wieczorem startuje.");
+        chatMessages.add(chatMes);
+
+        chatMes = new ChatMessage("Sergiej","Super jest.");
+        chatMessages.add(chatMes);
+
+        chatMes = new ChatMessage("Borys","Ale beka.");
+        chatMessages.add(chatMes);
+
+        chatMes = new ChatMessage("Borys","Trochę");
+        chatMessages.add(chatMes);
+
+        chatMes = new ChatMessage("Borys","spamu");
+        chatMessages.add(chatMes);
+
+        chatMes = new ChatMessage("Borys","nikomu");
+        chatMessages.add(chatMes);
+
+        chatMes = new ChatMessage("Borys","nie");
+        chatMessages.add(chatMes);
+
+        chatMes = new ChatMessage("Borys","zaszkodzi.");
+        chatMessages.add(chatMes);
+
+        return chatMessages;
     }
 }

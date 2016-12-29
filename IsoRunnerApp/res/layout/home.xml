@@ -70,11 +70,16 @@
                 android:textSize="18sp"
                 android:textColor="#FFFFFF"
                 android:background="#7f7fff"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="8dp"
                 />
             <ListView
                 android:id="@+id/news_list"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
                 android:layout_centerHorizontal="true" >
             </ListView>
         </LinearLayout>
@@ -92,11 +97,15 @@
                 android:textSize="18sp"
                 android:textColor="#FFFFFF"
                 android:background="#7f7fff"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
                 />
             <ListView
                 android:id="@+id/events_list"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
                 android:layout_centerHorizontal="true" >
             </ListView>
         </LinearLayout>

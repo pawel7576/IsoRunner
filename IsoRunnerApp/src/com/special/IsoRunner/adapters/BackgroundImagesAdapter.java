@@ -27,8 +27,8 @@ public class BackgroundImagesAdapter extends BaseAdapter {
     SettingsFragment mSettingsFragment;
     int mSelectedIndex;
 
-    public BackgroundImagesAdapter(SettingsFragment settingsFragment, Context context, List<BackgroundImageInfo> notes, int selectedIndex) {
-        this.bacgroundImages = notes;
+    public BackgroundImagesAdapter(SettingsFragment settingsFragment, Context context, List<BackgroundImageInfo> backImages, int selectedIndex) {
+        this.bacgroundImages = backImages;
         this.context = context;
         this.mSettingsFragment = settingsFragment;
         this.mSelectedIndex = selectedIndex;
@@ -38,7 +38,7 @@ public class BackgroundImagesAdapter extends BaseAdapter {
 
     @Override
     public int getCount() {
-        return 3;
+        return bacgroundImages.size();
     }
 
     @Override
