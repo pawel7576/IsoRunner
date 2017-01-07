@@ -83,9 +83,14 @@ public class MenuActivity extends FragmentActivity implements View.OnClickListen
 
     @Override
     public void onClick(View view) {
+        if(((ResideMenuItemExtended)view).id.equals(ResideMenuItemsProvider.mLogOut)) {
+            finish();
+        }
+        else {
+            changeFragment(ResideMenuItemsProvider.getFragmentInstance(((ResideMenuItemExtended)view).id));
+            resideMenu.closeMenu();
+        }
 
-        changeFragment(ResideMenuItemsProvider.getFragmentInstance(((ResideMenuItemExtended)view).id));
-        resideMenu.closeMenu();
     }
 
     //testing

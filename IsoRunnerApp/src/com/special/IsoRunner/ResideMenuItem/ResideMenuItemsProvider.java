@@ -24,7 +24,7 @@ public class ResideMenuItemsProvider {
     public static String mChat = "Chat";
     public static String mNotes = "Notes";
     public static String mSettings = "Settings";
-
+    public static String mLogOut = "Log out";
 
     public static ResideMenuItemExtended[] getLeftItems(Context context) {
         return new ResideMenuItemExtended[] {
@@ -38,7 +38,8 @@ public class ResideMenuItemsProvider {
     public static ResideMenuItemExtended[] getRightItems(Context context) {
         return new ResideMenuItemExtended[] {
             new ResideMenuItemExtended(context, R.drawable.icon_calendar, mNotes),
-            new ResideMenuItemExtended(context, R.drawable.icon_settings, mSettings)
+            new ResideMenuItemExtended(context, R.drawable.icon_settings, mSettings),
+                new ResideMenuItemExtended(context, R.drawable.filter, mLogOut)
         };
     }
 

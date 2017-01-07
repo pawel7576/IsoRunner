@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#7f7fff">
+
+    <ImageView
+        android:layout_marginTop="40dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/iso_runner_logo"/>
+
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:id="@+id/login_form"
+        android:visibility="visible">
+
+        <TextView
+            android:id="@+id/login_status"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#FFFFFF"
+            android:textSize="2.5mm"
+            android:maxLines="1"
+            android:text="Requesting..."
+            android:layout_marginBottom="10dp"
+            android:gravity="start"
+            />
+        <EditText android:id="@+id/username" android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:hint="Username"
+            android:inputType="textEmailAddress" android:maxLines="1"
+            android:singleLine="true"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:textSize="3.0mm"
+            android:textColor="#FFFFFF"
+            android:layout_below="@id/login_status"
+            android:nextFocusDown="@+id/password"
+            android:nextFocusLeft="@id/password"
+            android:nextFocusRight="@id/password"
+            android:nextFocusUp="@id/password"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:background="#7f7fff"
+            android:textColorHint="#b2aea6"
+
+            />
+
+        <EditText android:id="@id/password" android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:hint="Password"
+            android:imeActionId="1"
+            android:imeActionLabel="Log in"
+            android:imeOptions="actionUnspecified" android:inputType="textPassword"
+            android:textColor="#FFFFFF"
+            android:textSize="3.0mm"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:background="#7f7fff"
+            android:textColorHint="#b2aea6"
+            android:maxLines="1" android:singleLine="true"
+            android:layout_below="@id/username"
+            android:layout_marginTop="20dp"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            />
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_height="40dp"
+        android:layout_centerHorizontal="true">
+
+        <Button
+            android:id="@+id/login_button"
+            android:layout_width="0dp"
+            android:layout_weight="0.5"
+            android:layout_height="match_parent"
+            android:layout_marginRight="20dp"
+            android:layout_marginEnd="20dp"
+            android:background="#6d2edb"
+            android:shadowDx="10"
+            android:shadowDy="10"
+            android:textSize="3mm"
+            android:shadowColor="#FF0000"
+            android:text="LOGIN"
+            android:textColor="#FFFFFF"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+
+            />
+        <Button
+            android:id="@+id/register_button"
+            android:layout_width="0dp"
+            android:layout_weight="0.5"
+            android:layout_height="match_parent"
+            android:background="#6d2edb"
+            android:shadowDx="10"
+            android:shadowDy="10"
+            android:textSize="3mm"
+            android:shadowColor="#FF0000"
+            android:text="REGISTER"
+            android:textColor="#FFFFFF"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+
+            />
+    </LinearLayout>
+
+</LinearLayout>

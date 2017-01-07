@@ -9,22 +9,12 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ListView;
 
-import com.johnhiott.darkskyandroidlib.RequestBuilder;
-import com.johnhiott.darkskyandroidlib.models.Request;
-import com.johnhiott.darkskyandroidlib.models.WeatherResponse;
 import com.special.IsoRunner.adapters.EventsListViewAdapter;
 import com.special.IsoRunner.adapters.NewsListViewAdapter;
 import com.special.ResideMenu.ResideMenu;
 
-import retrofit.Callback;
-import retrofit.RetrofitError;
 import retrofit2.Call;
 import retrofit2.Response;
-
-//import retrofit.RetrofitError;
-//import retrofit2.Call;
-//import retrofit2.Callback;
-//import retrofit2.Response;
 
 public class HomeFragment extends Fragment {
 

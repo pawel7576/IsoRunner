@@ -55,7 +55,7 @@ public class BackgroundImagesAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         LayoutInflater inflater = LayoutInflater.from(context);
         convertView = inflater.inflate(R.layout.background_image_item, parent, false);
-        if(position == mSelectedIndex) convertView.setBackgroundColor(Color.rgb(191,253,253));
+        if(position == mSelectedIndex) convertView.setBackgroundColor(Color.rgb(92,92,255));
         else convertView.setBackgroundColor(Color.WHITE);
 
         TextView text = (TextView) convertView.findViewById(R.id.backgroundImageName);
