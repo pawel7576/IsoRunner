@@ -7,11 +7,11 @@ package com.special.IsoRunner.models;
 
 public class Note {
 
-    public String id;
+    public String noteId;
     public String text;
 
     public Note(String id, String text){
-        this.id = id;
+        this.noteId = id;
         this.text = text;
 
     }

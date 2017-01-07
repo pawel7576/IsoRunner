@@ -1,6 +1,7 @@
 package com.special.IsoRunner.callbackFiles;
 
 import com.special.IsoRunner.models.LoginResponse;
+import com.special.IsoRunner.models.Note;
 import com.special.IsoRunner.models.TrainingItem;
 
 import java.util.List;
@@ -15,6 +16,7 @@ import retrofit2.http.GET;
 import retrofit2.http.Headers;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
+import retrofit2.http.Query;
 
 /**
  * Created by Paweł on 2016-10-14.
@@ -40,6 +42,29 @@ public interface ICallService {
     })
     @POST("/api/Login")
     Call<LoginResponse> Login(@Field("name") String name, @Field("password") String password);
+
+
+    @FormUrlEncoded
+    @Headers({
+            "X-ApiKey: MagiczniCzarodzieje",
+    })
+    @POST("/api/AddNote")
+    Call<String> AddNote(@Query("token") String name, @Field("text") String password);
+
+    @FormUrlEncoded
+    @Headers({
+            "X-ApiKey: MagiczniCzarodzieje",
+    })
+    @POST("/api/RemoveNote")
+    Call<String> RemoveNote(@Query("token") String name, @Field("noteId") int password);
+
+    @Headers({
+            "X-ApiKey: MagiczniCzarodzieje",
+    })
+    @GET("/api/GetNotes")
+    Call<List<Note>> GetNotes(@Query("token") String name);
+
+
 
     public static final Retrofit retrofit = new Retrofit.Builder()
             .baseUrl("http://isorunnerservice.azurewebsites.net/")

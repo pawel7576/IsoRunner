@@ -1,6 +1,7 @@
 package com.special.IsoRunner;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.PorterDuff;
@@ -147,6 +148,12 @@ public class LoginActivity extends FragmentActivity {
                 if(loginResponse.error==null) {
                     loginStatusTextView.setText("");
                     loginStatusTextView.setTextColor(Color.WHITE);
+
+                    SharedPreferences myPrefs = getSharedPreferences("myPrefs", MODE_PRIVATE);
+                    SharedPreferences.Editor e = myPrefs.edit();
+                    e.putString("token", loginResponse.token);
+                    e.apply();
+
                     startActivity(new Intent(mContext, MenuActivity.class));
                 }
                 else {

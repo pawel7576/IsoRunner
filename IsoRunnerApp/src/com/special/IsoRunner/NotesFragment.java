@@ -1,5 +1,8 @@
 package com.special.IsoRunner;
 
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -8,9 +11,21 @@ import android.view.ViewGroup;
 import android.widget.*;
 
 import com.special.IsoRunner.adapters.EventsListViewAdapter;
+import com.special.IsoRunner.adapters.LoadingAdapter;
 import com.special.IsoRunner.adapters.NotesListViewAdapter;
+import com.special.IsoRunner.callbackFiles.ICallService;
+import com.special.IsoRunner.models.LoginResponse;
+import com.special.IsoRunner.models.Note;
+import com.special.IsoRunner.utils.UtilsApp;
 
 import java.util.ArrayList;
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
+import static android.content.Context.MODE_PRIVATE;
 
 
 public class NotesFragment extends Fragment {
@@ -20,6 +35,14 @@ public class NotesFragment extends Fragment {
     private ListView listNotes ;
     private Button buttonAddNote;
     private EditText editText;
+
+    Boolean isLoading;
+
+    Context mContext;
+    NotesFragment notesFragment;
+
+    List<Note> currentList;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
@@ -33,22 +56,95 @@ public class NotesFragment extends Fragment {
 
         listNotes = (ListView) parentView.findViewById(R.id.listNotes);
 
+        mContext = getActivity().getBaseContext();
+        notesFragment = this;
+
         this.loadData();
         return parentView;
     }
 
     private void loadData() {
-        NotesListViewAdapter eventsAdapter = new NotesListViewAdapter(this, getActivity().getBaseContext(), GlobalDataProvider.getNotes());
+
+        isLoading = true;
+        LoadingAdapter eventsAdapter = new LoadingAdapter(getActivity().getBaseContext(),"Loading ...");
         listNotes.setAdapter(eventsAdapter);
-        //TODO call get notes
+
+        ICallService gitHubService = ICallService.retrofit.create(ICallService.class);
+        Call<List<Note>> call = gitHubService.GetNotes(UtilsApp.getToken(getActivity()));
+        call.enqueue(new Callback<List<Note>>() {
+            @Override
+            public void onResponse(Call<List<Note>> call, Response<List<Note>> response) {
+                isLoading = false;
+                if(response.body().size() == 0) {
+                    LoadingAdapter eventsAdapter = new LoadingAdapter(getActivity().getBaseContext(),"No content available");
+                    listNotes.setAdapter(eventsAdapter);
+                }
+                else {
+                    NotesListViewAdapter eventsAdapter = new NotesListViewAdapter(notesFragment, mContext, response.body());
+                    listNotes.setAdapter(eventsAdapter);
+                    currentList = response.body();
+                }
+            }
+            @Override
+            public void onFailure(Call<List<Note>> call, Throwable t) {
+                isLoading = false;
+            }
+        });
+
     }
 
     public void removeNoteWithId(String id) {
-        int i = 0;
-        //TODO call to remove
+        removeNoteWithIdFromCurrentList(id);
+
+        ICallService gitHubService = ICallService.retrofit.create(ICallService.class);
+        Call<String> call = gitHubService.RemoveNote(UtilsApp.getToken(getActivity()),Integer.parseInt(id));
+        call.enqueue(new Callback<String>() {
+            @Override
+            public void onResponse(Call<String> call, Response<String> response) {
+            }
+            @Override
+            public void onFailure(Call<String> call, Throwable t) {
+            }
+        });
+    }
+
+    public void removeNoteWithIdFromCurrentList (String id) {
+
+        for(int i = 0; i < currentList.size(); i++) {
+            if(currentList.get(i).noteId.equals(id)) {
+                currentList.remove(i);
+                break;
+            }
+        }
+        NotesListViewAdapter eventsAdapter = new NotesListViewAdapter(notesFragment, mContext, currentList);
+        listNotes.setAdapter(eventsAdapter);
     }
 
     public void addNoteWithText(String text) {
+        if(isLoading) {
+            LoadingAdapter eventsAdapter = new LoadingAdapter(getActivity().getBaseContext(),"Wait. Loading ...");
+            listNotes.setAdapter(eventsAdapter);
+            return;
+        }
+
+        isLoading = true;
+        LoadingAdapter eventsAdapter = new LoadingAdapter(getActivity().getBaseContext(),"Loading ...");
+        listNotes.setAdapter(eventsAdapter);
+
+        ICallService gitHubService = ICallService.retrofit.create(ICallService.class);
+        Call<String> call = gitHubService.AddNote(UtilsApp.getToken(getActivity()),text);
+        call.enqueue(new Callback<String>() {
+            @Override
+            public void onResponse(Call<String> call, Response<String> response) {
+                loadData();
+            }
+            @Override
+            public void onFailure(Call<String> call, Throwable t) {
+                loadData();
+            }
+        });
+
+
         int i = 0;
         //TODO call to add
     }
