@@ -26,6 +26,7 @@ public class UtilsApp {
         return formattedDate;
     }
     public static String getToken(Activity activity) {
+        if(activity == null) return "";
         SharedPreferences myPrefs = activity.getSharedPreferences("myPrefs", MODE_PRIVATE);
         return myPrefs.getString("token","default_token_value");
     }
