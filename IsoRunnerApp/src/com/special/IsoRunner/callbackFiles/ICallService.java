@@ -1,5 +1,6 @@
 package com.special.IsoRunner.callbackFiles;
 
+import com.special.IsoRunner.models.ChatMessage;
 import com.special.IsoRunner.models.LoginResponse;
 import com.special.IsoRunner.models.Note;
 import com.special.IsoRunner.models.TrainingItem;
@@ -55,6 +56,13 @@ public interface ICallService {
     @Headers({
             "X-ApiKey: MagiczniCzarodzieje",
     })
+    @POST("/api/AddMessage")
+    Call<String> AddMessage(@Query("token") String token, @Field("text") String text);
+
+    @FormUrlEncoded
+    @Headers({
+            "X-ApiKey: MagiczniCzarodzieje",
+    })
     @POST("/api/RemoveNote")
     Call<String> RemoveNote(@Query("token") String name, @Field("noteId") int password);
 
@@ -64,7 +72,11 @@ public interface ICallService {
     @GET("/api/GetNotes")
     Call<List<Note>> GetNotes(@Query("token") String name);
 
-
+    @Headers({
+            "X-ApiKey: MagiczniCzarodzieje",
+    })
+    @GET("/api/GetMessages")
+    Call<List<ChatMessage>> GetMessages(@Query("token") String name);
 
     public static final Retrofit retrofit = new Retrofit.Builder()
             .baseUrl("http://isorunnerservice.azurewebsites.net/")

@@ -36,18 +36,18 @@
         android:orientation="horizontal"
         android:weightSum="12">
 
-        <EditText
-            android:id="@+id/autorEditText"
-            android:layout_weight="3"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:hint="Name"
-            android:inputType="textCapSentences|textMultiLine" />
+        <!--<EditText-->
+            <!--android:id="@+id/autorEditText"-->
+            <!--android:layout_weight="3"-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:hint="Name"-->
+            <!--android:inputType="textCapSentences|textMultiLine" />-->
 
         <Button xmlns:android="http://schemas.android.com/apk/res/android"
             android:id="@+id/buttonSentMessage"
             android:layout_width="0dp"
-            android:layout_weight="9"
+            android:layout_weight="12"
             android:layout_height="match_parent"
             android:layout_marginBottom="7dp"
             android:background="@drawable/add_note_button_shape"

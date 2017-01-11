@@ -37,11 +37,14 @@ public class LoginActivity extends FragmentActivity {
 
     TextView loginStatusTextView;
 
+    Boolean isCalling;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_activity);
         mContext = this;
+        isCalling = false;
         setUpMenu();
     }
 
@@ -79,6 +82,8 @@ public class LoginActivity extends FragmentActivity {
     }
 
     private void LoginClicked() {
+        if(isCalling) return;
+
         if(userNameEditText.getText().toString().equals("")) {
             loginStatusTextView.setText("You cannot login without a username.");
             loginStatusTextView.setTextColor(Color.RED);
@@ -96,6 +101,8 @@ public class LoginActivity extends FragmentActivity {
 
 
     private void RegisterClicked() {
+        if(isCalling) return;
+
         if(userNameEditText.getText().toString().equals("")) {
             loginStatusTextView.setText("You cannot login without a username.");
             loginStatusTextView.setTextColor(Color.RED);
@@ -113,11 +120,13 @@ public class LoginActivity extends FragmentActivity {
 
 
     private void callRegister() {
+        isCalling = true;
         ICallService gitHubService = ICallService.retrofit.create(ICallService.class);
         Call<LoginResponse> call = gitHubService.Register(userNameEditText.getText().toString(),passwordEditText.getText().toString());
         call.enqueue(new Callback<LoginResponse>() {
             @Override
             public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
+                isCalling = false;
                 LoginResponse loginResponse = response.body();
                 if(loginResponse.error==null) {
                     loginStatusTextView.setText("Registry success");
@@ -131,6 +140,7 @@ public class LoginActivity extends FragmentActivity {
             }
             @Override
             public void onFailure(Call<LoginResponse> call, Throwable t) {
+                isCalling = false;
                 loginStatusTextView.setText("Connection problem");
                 loginStatusTextView.setTextColor(Color.RED);
             }
@@ -139,11 +149,13 @@ public class LoginActivity extends FragmentActivity {
 
 
     private void callLogin() {
+        isCalling = true;
         ICallService gitHubService = ICallService.retrofit.create(ICallService.class);
         Call<LoginResponse> call = gitHubService.Login(userNameEditText.getText().toString(),passwordEditText.getText().toString());
         call.enqueue(new Callback<LoginResponse>() {
             @Override
             public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
+                isCalling = false;
                 LoginResponse loginResponse = response.body();
                 if(loginResponse.error==null) {
                     loginStatusTextView.setText("");
@@ -163,6 +175,7 @@ public class LoginActivity extends FragmentActivity {
             }
             @Override
             public void onFailure(Call<LoginResponse> call, Throwable t) {
+                isCalling = false;
                 loginStatusTextView.setText("Connection problem");
                 loginStatusTextView.setTextColor(Color.RED);
             }

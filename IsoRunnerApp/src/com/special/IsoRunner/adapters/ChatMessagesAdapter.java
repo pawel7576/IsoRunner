@@ -6,7 +6,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.special.IsoRunner.ChatFragment;
@@ -25,13 +24,11 @@ public class ChatMessagesAdapter extends BaseAdapter {
     List<ChatMessage> chatMessages;
     Context context;
     ChatFragment mChatFragment;
-    int mSelectedIndex;
 
-    public ChatMessagesAdapter(ChatFragment chatFragment, Context context, List<ChatMessage> chatMessages, int selectedIndex) {
+    public ChatMessagesAdapter(ChatFragment chatFragment, Context context, List<ChatMessage> chatMessages) {
         this.chatMessages = chatMessages;
         this.context = context;
         this.mChatFragment = chatFragment;
-        this.mSelectedIndex = selectedIndex;
     }
 
 
@@ -57,10 +54,10 @@ public class ChatMessagesAdapter extends BaseAdapter {
         convertView = inflater.inflate(R.layout.chat_message_item, parent, false);
 
         TextView autorTextView = (TextView) convertView.findViewById(R.id.messageAutor);
-        autorTextView.setText(chatMessages.get(position).mAutor + ":");
+        autorTextView.setText(chatMessages.get(position).publisherName + ":");
 
         TextView textMessageTextView = (TextView) convertView.findViewById(R.id.messageText);
-        textMessageTextView.setText(chatMessages.get(position).mText);
+        textMessageTextView.setText(chatMessages.get(position).text);
 
         if(position % 2 == 0) convertView.setBackgroundColor(Color.rgb(74,74,72));
         else convertView.setBackgroundColor(Color.rgb(110,110,105));

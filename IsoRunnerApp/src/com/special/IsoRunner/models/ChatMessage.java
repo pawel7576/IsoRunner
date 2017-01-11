@@ -5,11 +5,12 @@ package com.special.IsoRunner.models;
  */
 
 public class ChatMessage {
-    public String mAutor;
-    public String mText;
+    public String publisherName;
+    public String text;
+    public String messageId;
 
     public ChatMessage(String autor, String text) {
-        this.mAutor = autor;
-        this.mText = text;
+        this.publisherName = autor;
+        this.text = text;
     }
 }
