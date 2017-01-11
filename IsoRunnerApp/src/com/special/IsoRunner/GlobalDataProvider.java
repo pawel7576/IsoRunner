@@ -125,7 +125,7 @@ public class GlobalDataProvider {
         news1 = new BackgroundImageInfo("Forest",R.drawable.menu_background);
         images.add(news1);
 
-        news1 = new BackgroundImageInfo("Fire",R.drawable.menu_background); //TODO add new background image
+        news1 = new BackgroundImageInfo("Track",R.drawable.menu_background_legs);
         images.add(news1);
 
         return images;
