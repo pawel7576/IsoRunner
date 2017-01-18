@@ -3,9 +3,36 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.google.android.gms.maps.MapView
-        android:id="@+id/mapView"
+    <Button xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/map_start_trainings"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="40dp"
+        android:background="@drawable/add_note_button_shape"
+        android:textColor="#FFFFFF"
+        android:text="START TRAINING" />
+
+    <Button xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/map_load_trainings"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@drawable/add_note_button_shape"
+        android:textColor="#FFFFFF"
+        android:text="LOAD TRAININGS" />
+    <ScrollView
+        android:id="@+id/mapScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+        <ImageView
+            android:adjustViewBounds="true"
+            android:layout_width="1000dp"
+            android:layout_height="1000dp"
+            android:src="@drawable/mapa1"/>
+    </ScrollView>
+
+    <ListView
+        android:id="@+id/mapListView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 
 </LinearLayout>

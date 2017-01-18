@@ -39,6 +39,9 @@ public class LoginActivity extends FragmentActivity {
 
     Boolean isCalling;
 
+    static String loginSuccess = "Login succes";
+    static String registerSuccess = "Register succes";
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -129,7 +132,7 @@ public class LoginActivity extends FragmentActivity {
                 isCalling = false;
                 LoginResponse loginResponse = response.body();
                 if(loginResponse.error==null) {
-                    loginStatusTextView.setText("Registry success");
+                    loginStatusTextView.setText(registerSuccess);
                     loginStatusTextView.setTextColor(Color.WHITE);
 //                    startActivity(new Intent(mContext, MenuActivity.class));
                 }
@@ -147,7 +150,6 @@ public class LoginActivity extends FragmentActivity {
         });
     }
 
-
     private void callLogin() {
         isCalling = true;
         ICallService gitHubService = ICallService.retrofit.create(ICallService.class);
@@ -158,7 +160,7 @@ public class LoginActivity extends FragmentActivity {
                 isCalling = false;
                 LoginResponse loginResponse = response.body();
                 if(loginResponse.error==null) {
-                    loginStatusTextView.setText("");
+                    loginStatusTextView.setText(loginSuccess);
                     loginStatusTextView.setTextColor(Color.WHITE);
 
                     SharedPreferences myPrefs = getSharedPreferences("myPrefs", MODE_PRIVATE);

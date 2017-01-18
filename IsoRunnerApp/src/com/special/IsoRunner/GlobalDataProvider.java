@@ -44,6 +44,18 @@ public class GlobalDataProvider {
                 "Dwukrotny mistrz olimpijski w pchnięciu kulą - Tomasz Majewski - kończy dzisiaj 35 lat");
         news.add(news3);
 
+        News news4 = new News(
+                "Nowe przepisy",
+                formattedDate,
+                "Z dniem 20 lutego 2017 roku wejdą nowe przepisy IAAF odnosnie stosowanego sprzętu na zawodach sportowych klasy M i MM");
+        news.add(news4);
+
+        News news5 = new News(
+                "Alcane złapany",
+                formattedDate,
+                "Probka B brązowego medalisty Igrzysk Olimpijskych - Maranio Alcane wykazala stosowanie przez niego dopingu. Grozi mu dożywotnia doskwalifikacja.");
+        news.add(news5);
+
         return news;
     }
 
@@ -81,6 +93,12 @@ public class GlobalDataProvider {
                 formattedDate,
                 "Mistrzostwa Zimbawe");
         events.add(event3);
+
+        Event event4 = new Event(
+                "Toruń",
+                formattedDate,
+                "Halowy mityng lekkoatletyczny");
+        events.add(event4);
 
         return events;
     }
