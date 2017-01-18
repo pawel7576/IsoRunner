@@ -99,6 +99,18 @@ public interface ICallService {
                              @Field("WeatherConditions") String pas6,
                              @Field("TrainingId") int pas7);
 
+    @FormUrlEncoded
+    @Headers({
+            "X-ApiKey: MagiczniCzarodzieje",
+    })
+    @POST("/api/SaveFilter")
+    Call<String> SaveFilter(@Query("token") String name,
+                             @Field("FromDistance") double pas1,
+                             @Field("ToDistance") double pas2,
+                             @Field("FromTemperature") int pas3,
+                             @Field("ToTemperature") int pas4,
+                             @Field("WeatherConditions") String pas5);
+
     public static final Retrofit retrofit = new Retrofit.Builder()
             .baseUrl("http://isorunnerservice.azurewebsites.net/")
             .addConverterFactory(GsonConverterFactory.create())

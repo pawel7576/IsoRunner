@@ -45,6 +45,7 @@ public class DiaryTrainingFragment extends Fragment {
 
     private ListView listTrainings;
     private LinearLayout addTrainingLayout ;
+    private LinearLayout changeFiltersLayout;
 
     private Button buttonFinalAdd;
     private EditText option2;
@@ -54,6 +55,12 @@ public class DiaryTrainingFragment extends Fragment {
     private EditText option6;
     private EditText option7;
 
+    private Button buttonSaveFilter;
+    private EditText filter1;
+    private EditText filter2;
+    private EditText filter3;
+    private EditText filter4;
+    private EditText filter5;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -91,10 +98,20 @@ public class DiaryTrainingFragment extends Fragment {
         option6 = (EditText) view.findViewById(R.id.par6);
         option7 = (EditText) view.findViewById(R.id.par7);
         //2 option
-
+        changeFiltersLayout = (LinearLayout) view.findViewById(R.id.change_filters_layout);
+        buttonSaveFilter = (Button) view.findViewById(R.id.save_filter_button);
+        buttonSaveFilter.setOnClickListener(new buttonSaveFilterListener(this));
+        filter1 = (EditText) view.findViewById(R.id.change_par1);
+        filter2 = (EditText) view.findViewById(R.id.change_par2);
+        filter3 = (EditText) view.findViewById(R.id.change_par3);
+        filter4 = (EditText) view.findViewById(R.id.change_par4);
+        filter5 = (EditText) view.findViewById(R.id.change_par5);
         //3 option
         listTrainings = (ListView) view.findViewById(R.id.listTrainings);
 
+        listTrainings.setVisibility(View.VISIBLE);
+        addTrainingLayout.setVisibility(View.GONE);
+        changeFiltersLayout.setVisibility(View.GONE);
         loadList();
         return view;
     }
@@ -138,6 +155,7 @@ public class DiaryTrainingFragment extends Fragment {
         {
             listTrainings.setVisibility(View.GONE);
             addTrainingLayout.setVisibility(View.VISIBLE);
+            changeFiltersLayout.setVisibility(View.GONE);
         }
     }
 
@@ -150,8 +168,9 @@ public class DiaryTrainingFragment extends Fragment {
         @Override
         public void onClick(View v)
         {
-//            listTrainings.setVisibility(View.VISIBLE);
-//            addTrainingLayout.setVisibility(View.VISIBLE);
+            listTrainings.setVisibility(View.GONE);
+            addTrainingLayout.setVisibility(View.GONE);
+            changeFiltersLayout.setVisibility(View.VISIBLE);
         }
     }
 
@@ -164,8 +183,10 @@ public class DiaryTrainingFragment extends Fragment {
         @Override
         public void onClick(View v)
         {
+            loadList();
             listTrainings.setVisibility(View.VISIBLE);
             addTrainingLayout.setVisibility(View.GONE);
+            changeFiltersLayout.setVisibility(View.GONE);
         }
     }
 
@@ -183,7 +204,7 @@ public class DiaryTrainingFragment extends Fragment {
 
 
             isLoading = true;
-            LoadingAdapter eventsAdapter = new LoadingAdapter(getActivity().getBaseContext(),"Loading ...");
+            LoadingAdapter eventsAdapter = new LoadingAdapter(getActivity().getBaseContext(),"Loading ..."); //TODO useless?
             listTrainings.setAdapter(eventsAdapter);
 
             ICallService gitHubService = ICallService.retrofit.create(ICallService.class);
@@ -197,6 +218,70 @@ public class DiaryTrainingFragment extends Fragment {
                     option7.getText().toString(),
                     Integer.parseInt(option5.getText().toString()),
                     option6.getText().toString(),7);
+            call.enqueue(new Callback<String>() {
+                @Override
+                public void onResponse(Call<String> call, Response<String> response) {
+                    isLoading = false;
+
+                }
+                @Override
+                public void onFailure(Call<String> call, Throwable t) {
+                    isLoading = false;
+
+                }
+            });
+        }
+    }
+
+    private class buttonSaveFilterListener implements View.OnClickListener {
+        DiaryTrainingFragment mDiaryTrainingFragment;
+        public buttonSaveFilterListener(DiaryTrainingFragment diaryTrainingFragment) {
+            this.mDiaryTrainingFragment = diaryTrainingFragment;
+        }
+
+        @Override
+        public void onClick(View v)
+        {
+            isLoading = true;
+            LoadingAdapter eventsAdapter = new LoadingAdapter(getActivity().getBaseContext(),"Loading ...");
+            listTrainings.setAdapter(eventsAdapter);
+
+            ICallService gitHubService = ICallService.retrofit.create(ICallService.class);
+
+            double fromDistance;
+            double toDistance;
+            int fromTemperature;
+            int toTemperature ;
+            String weatherConditions = null;
+
+            try{
+                fromDistance = Double.parseDouble(filter1.getText().toString());
+            } catch (final NumberFormatException e) {
+                fromDistance = 0;
+            }
+
+            try{
+                toDistance = Double.parseDouble(filter2.getText().toString());
+            } catch (final NumberFormatException e) {
+                toDistance = 9999999;
+            }
+
+            try{
+                fromTemperature = Integer.parseInt(filter3.getText().toString());
+            } catch (final NumberFormatException e) {
+                fromTemperature = -100;
+            }
+
+            try{
+                toTemperature = Integer.parseInt(filter4.getText().toString());
+            } catch (final NumberFormatException e) {
+                toTemperature = 100;
+            }
+
+            if(!filter5.getText().toString().isEmpty())
+                weatherConditions = filter5.getText().toString();
+
+            Call<String> call = gitHubService.SaveFilter(UtilsApp.getToken(getActivity()),fromDistance,toDistance,fromTemperature,toTemperature,weatherConditions);
             call.enqueue(new Callback<String>() {
                 @Override
                 public void onResponse(Call<String> call, Response<String> response) {

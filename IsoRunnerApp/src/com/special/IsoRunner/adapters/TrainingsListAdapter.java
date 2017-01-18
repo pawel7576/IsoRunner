@@ -72,16 +72,6 @@ public class TrainingsListAdapter extends BaseAdapter {
         if(weatherConditions.equals("2"))weatherImage.setImageResource(R.drawable.weather2);
         if(weatherConditions.equals("3"))weatherImage.setImageResource(R.drawable.weather3);
         if(weatherConditions.equals("4"))weatherImage.setImageResource(R.drawable.weather4);
-//
-//        Button button = (Button) convertView.findViewById(R.id.deleteItem);
-//        button.setTag(trainingItems.get(position).noteId);
-//
-//        button.setOnClickListener(new View.OnClickListener() {
-//            public void onClick(View v) {
-//                String idNoteToRemove = (String) v.getTag();
-//                mNotesFragment.removeNoteWithId(idNoteToRemove);
-//            }
-//        });
 
         return convertView;
     }
