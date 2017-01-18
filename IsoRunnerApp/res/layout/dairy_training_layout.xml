@@ -3,4 +3,119 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-</LinearLayout>
+    <Button xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/add_training"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@drawable/add_note_button_shape"
+        android:textColor="#FFFFFF"
+        android:text="ADD TRAINING" />
+
+    <Button xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/change_filters"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@drawable/add_note_button_shape"
+        android:textColor="#FFFFFF"
+        android:text="CHANGE FILTERS" />
+
+    <Button xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/show_list"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@drawable/add_note_button_shape"
+        android:textColor="#FFFFFF"
+        android:text="LIST" />
+
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical" android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/add_training_layout">
+
+        <!--<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+            <!--android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:weightSum="3">-->
+            <!--<EditText-->
+                <!--android:id="@+id/par1" android:layout_width="0dp" android:layout_weight="2" android:layout_height="wrap_content" android:hint="" android:inputType="textCapSentences|textMultiLine" />-->
+            <!--<TextView-->
+                <!--android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_marginLeft="25dp"-->
+                <!--android:text="Gdańsk" android:gravity="center_vertical|start" android:typeface="sans" android:textSize="14sp" android:textColor="#000000" />-->
+        <!--</LinearLayout>-->
+
+        <Button xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/add_training_final_button"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="#A30000"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:layout_marginBottom="5dp"
+            android:textColor="#FFFFFF"
+            android:text="ADD" />
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:weightSum="3">
+            <EditText
+                android:id="@+id/par2" android:layout_width="0dp" android:layout_weight="2" android:layout_height="wrap_content" android:hint="" android:inputType="textCapSentences|textMultiLine" />
+            <TextView
+                android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_marginLeft="25dp"
+                android:text="date" android:gravity="center_vertical|start" android:typeface="sans" android:textSize="14sp" android:textColor="#000000" />
+        </LinearLayout>
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:weightSum="3">
+            <EditText
+                android:id="@+id/par3" android:layout_width="0dp" android:layout_weight="2" android:layout_height="wrap_content" android:hint="" android:inputType="textCapSentences|textMultiLine" />
+            <TextView
+                android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_marginLeft="25dp"
+                android:text="duration" android:gravity="center_vertical|start" android:typeface="sans" android:textSize="14sp" android:textColor="#000000" />
+        </LinearLayout>
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:weightSum="3">
+            <EditText
+                android:id="@+id/par4" android:layout_width="0dp" android:layout_weight="2" android:layout_height="wrap_content" android:hint="" android:inputType="textCapSentences|textMultiLine" />
+            <TextView
+                android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_marginLeft="25dp"
+                android:text="distance" android:gravity="center_vertical|start" android:typeface="sans" android:textSize="14sp" android:textColor="#000000" />
+        </LinearLayout>
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:weightSum="3">
+            <EditText
+                android:id="@+id/par5" android:layout_width="0dp" android:layout_weight="2" android:layout_height="wrap_content" android:hint="" android:inputType="textCapSentences|textMultiLine" />
+            <TextView
+                android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_marginLeft="25dp"
+                android:text="temperature" android:gravity="center_vertical|start" android:typeface="sans" android:textSize="14sp" android:textColor="#000000" />
+        </LinearLayout>
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:weightSum="3">
+            <EditText
+                android:id="@+id/par6" android:layout_width="0dp" android:layout_weight="2" android:layout_height="wrap_content" android:hint="" android:inputType="textCapSentences|textMultiLine" />
+            <TextView
+                android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_marginLeft="25dp"
+                android:text="weather" android:gravity="center_vertical|start" android:typeface="sans" android:textSize="14sp" android:textColor="#000000" />
+        </LinearLayout>
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="match_parent" android:weightSum="3">
+            <EditText
+                android:id="@+id/par7" android:layout_width="0dp" android:layout_weight="2" android:layout_height="match_parent" android:hint="" android:inputType="textCapSentences|textMultiLine" />
+            <TextView
+                android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_marginLeft="25dp"
+                android:text="description" android:gravity="center_vertical|start" android:typeface="sans" android:textSize="14sp" android:textColor="#000000" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/listTrainings"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+
+
+
+    </LinearLayout>

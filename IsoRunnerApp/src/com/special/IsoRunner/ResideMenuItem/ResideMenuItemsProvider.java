@@ -30,7 +30,7 @@ public class ResideMenuItemsProvider {
         return new ResideMenuItemExtended[] {
             new ResideMenuItemExtended(context, R.drawable.icon_home,    mHome),
                 new ResideMenuItemExtended(context, R.drawable.icon_diary_training,  mDiaryTraining),
-                new ResideMenuItemExtended(context, R.drawable.icon_training_analyzer, mTrainingAnalyzer),
+//                new ResideMenuItemExtended(context, R.drawable.icon_training_analyzer, mTrainingAnalyzer),
                 new ResideMenuItemExtended(context, R.drawable.icon_map,  mMap),
             new ResideMenuItemExtended(context, R.drawable.icon_profile, mChat)
         };

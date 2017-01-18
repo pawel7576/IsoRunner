@@ -5,6 +5,7 @@ import com.special.IsoRunner.models.LoginResponse;
 import com.special.IsoRunner.models.Note;
 import com.special.IsoRunner.models.TrainingItem;
 
+import java.util.Date;
 import java.util.List;
 
 import retrofit2.Call;
@@ -75,8 +76,28 @@ public interface ICallService {
     @Headers({
             "X-ApiKey: MagiczniCzarodzieje",
     })
+    @GET("/api/GetTrainings")
+    Call<List<TrainingItem>> GetTrainings(@Query("token") String name);
+
+    @Headers({
+            "X-ApiKey: MagiczniCzarodzieje",
+    })
     @GET("/api/GetMessages")
     Call<List<ChatMessage>> GetMessages(@Query("token") String name);
+
+    @FormUrlEncoded
+    @Headers({
+            "X-ApiKey: MagiczniCzarodzieje",
+    })
+    @POST("/api/AddTraining")
+    Call<String> AddTraining(@Query("token") String name,
+                             @Field("Date") Date pas1,
+                             @Field("Duration") String pas2,
+                             @Field("Distance") double pas3,
+                             @Field("Description") String pas4,
+                             @Field("Temperature") int pas5,
+                             @Field("WeatherConditions") String pas6,
+                             @Field("TrainingId") int pas7);
 
     public static final Retrofit retrofit = new Retrofit.Builder()
             .baseUrl("http://isorunnerservice.azurewebsites.net/")

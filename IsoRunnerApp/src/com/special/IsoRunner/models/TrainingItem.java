@@ -7,9 +7,11 @@ import java.util.Date;
  */
 
 public class TrainingItem {
-    public String id;
-    public Date date;
-    public String type;
-    public String title;
-    public String description;;
+    public String trainingId;
+    public String date;
+    public String duration;
+    public double distance;
+    public String description;
+    public int temperature;
+    public String weatherConditions;
 }
