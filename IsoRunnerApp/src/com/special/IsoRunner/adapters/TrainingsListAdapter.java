@@ -58,6 +58,9 @@ public class TrainingsListAdapter extends BaseAdapter {
         TextView textDistance = (TextView) convertView.findViewById(R.id.training_distance);
         textDistance.setText(trainingItems.get(position).distance + " km");
 
+        TextView textTrainingDate = (TextView) convertView.findViewById(R.id.training_date);
+        textTrainingDate.setText(trainingItems.get(position).date);
+
         TextView textTrainingTime = (TextView) convertView.findViewById(R.id.training_time);
         String trainingTime = trainingItems.get(position).duration;
         String[] separated = trainingTime.split(":");
