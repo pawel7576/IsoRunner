@@ -91,7 +91,7 @@ public interface ICallService {
     })
     @POST("/api/AddTraining")
     Call<String> AddTraining(@Query("token") String name,
-                             @Field("Date") Date pas1,
+                             @Field("Date") String pas1,
                              @Field("Duration") String pas2,
                              @Field("Distance") double pas3,
                              @Field("Description") String pas4,

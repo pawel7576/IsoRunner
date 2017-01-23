@@ -209,11 +209,10 @@ public class DiaryTrainingFragment extends Fragment {
 
             ICallService gitHubService = ICallService.retrofit.create(ICallService.class);
             double distance = Double.parseDouble(option4.getText().toString().replaceAll(" ","."));
-            Date date = new Date(2012,11,11);
 
             Call<String> call = gitHubService.AddTraining(UtilsApp.getToken(getActivity()),
-                    date,
-                    option3.getText().toString(),
+                    option2.getText().toString(), //dd-mm-yyyy
+                    option3.getText().toString(), //hh:mm:ss
                     distance,
                     option7.getText().toString(),
                     Integer.parseInt(option5.getText().toString()),
