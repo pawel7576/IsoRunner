@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import com.special.IsoRunner.R;
 import com.special.IsoRunner.models.News;
+import com.special.IsoRunner.models.NewsBase;
 
 import java.util.List;
 
@@ -18,14 +19,13 @@ import java.util.List;
 
 public class NewsListViewAdapter extends BaseAdapter {
 
-    List<News> news;
+    List<NewsBase> news;
     Context context;
-    public NewsListViewAdapter(Context context, List<News> news) {
+
+    public NewsListViewAdapter(Context context, List<NewsBase> news) {
         this.news = news;
         this.context = context;
     }
-
-
 
     @Override
     public int getCount() {
@@ -45,15 +45,22 @@ public class NewsListViewAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         LayoutInflater inflater = LayoutInflater.from(context);
-        convertView = inflater.inflate(R.layout.news_item, parent, false);
+
+        NewsBase currentNews = news.get(position);
+        if(News.class.isInstance(currentNews)) {
+            convertView = inflater.inflate(R.layout.news_item, parent, false);
+        }
+        else {
+            convertView = inflater.inflate(R.layout.event_item, parent, false);
+        }
 
         TextView date = (TextView) convertView.findViewById(R.id.event_date);
         TextView title = (TextView) convertView.findViewById(R.id.event_place);
         TextView text = (TextView) convertView.findViewById(R.id.information_event);
 
-        date.setText(news.get(position).date);
-        title.setText(news.get(position).title);
-        text.setText(news.get(position).text);
+        date.setText(currentNews.date);
+        title.setText(currentNews.title);
+        text.setText(currentNews.text);
 
         return convertView;
     }

@@ -12,7 +12,6 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.ScrollView;
 
-import com.special.IsoRunner.adapters.EventsListViewAdapter;
 import com.special.IsoRunner.adapters.MapTrainingsAdapter;
 
 /**

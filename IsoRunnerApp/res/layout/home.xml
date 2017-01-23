@@ -50,16 +50,10 @@
         android:layout_height="fill_parent"
         android:weightSum="2"
         android:background="@android:color/white">
-        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-            android:orientation="vertical"
-            android:layout_width="fill_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:background="@android:color/white">
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:text="News"
+                android:text="News &amp; Events"
                 android:gravity="center"
                 android:textSize="18sp"
                 android:textColor="#FFFFFF"
@@ -74,35 +68,9 @@
                 android:layout_height="match_parent"
                 android:layout_marginLeft="8dp"
                 android:layout_marginRight="8dp"
-                android:layout_centerHorizontal="true" >
-            </ListView>
-        </LinearLayout>
-        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-            android:orientation="vertical"
-            android:layout_width="fill_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:background="@android:color/white">
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:text="Events"
-                android:gravity="center"
-                android:textSize="18sp"
-                android:textColor="#FFFFFF"
-                android:background="#7f7fff"
-                android:layout_marginLeft="8dp"
-                android:layout_marginRight="8dp"
-                />
-            <ListView
-                android:id="@+id/events_list"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="8dp"
-                android:layout_marginRight="8dp"
-                android:layout_centerHorizontal="true" >
-            </ListView>
-        </LinearLayout>
+                android:layout_centerHorizontal="true"
+                android:divider="@android:color/transparent"
+                android:dividerHeight="8.0sp"/>
     </LinearLayout>
 
 </LinearLayout>

@@ -4,12 +4,15 @@ import com.special.IsoRunner.models.BackgroundImageInfo;
 import com.special.IsoRunner.models.ChatMessage;
 import com.special.IsoRunner.models.Event;
 import com.special.IsoRunner.models.News;
+import com.special.IsoRunner.models.NewsBase;
 import com.special.IsoRunner.models.Note;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collections;
 import java.util.List;
+import java.util.Random;
 
 /**
  * Created by pawel on 19/11/16.
@@ -101,6 +104,17 @@ public class GlobalDataProvider {
         events.add(event4);
 
         return events;
+    }
+
+    static List<NewsBase> getNewsAndEvents() {
+        List<NewsBase> news = new ArrayList<>();
+
+        news.addAll(getNews());
+        news.addAll(getEvents());
+
+        Collections.shuffle(news, new Random(System.nanoTime()));
+
+        return news;
     }
 
     static List<Note> getNotes() {

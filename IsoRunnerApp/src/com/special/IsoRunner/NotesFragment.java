@@ -1,8 +1,6 @@
 package com.special.IsoRunner;
 
 import android.content.Context;
-import android.content.SharedPreferences;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -10,22 +8,17 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.*;
 
-import com.special.IsoRunner.adapters.EventsListViewAdapter;
 import com.special.IsoRunner.adapters.LoadingAdapter;
 import com.special.IsoRunner.adapters.NotesListViewAdapter;
 import com.special.IsoRunner.callbackFiles.ICallService;
-import com.special.IsoRunner.models.LoginResponse;
 import com.special.IsoRunner.models.Note;
 import com.special.IsoRunner.utils.UtilsApp;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-
-import static android.content.Context.MODE_PRIVATE;
 
 
 public class NotesFragment extends Fragment {
