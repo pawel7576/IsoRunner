@@ -115,7 +115,7 @@ public class LoginActivity extends FragmentActivity {
             loginStatusTextView.setTextColor(Color.RED);
         }
         else {
-            loginStatusTextView.setText("Try to log in...");
+            loginStatusTextView.setText("Try to register...");
             loginStatusTextView.setTextColor(Color.WHITE);
             this.callRegister();
         }
