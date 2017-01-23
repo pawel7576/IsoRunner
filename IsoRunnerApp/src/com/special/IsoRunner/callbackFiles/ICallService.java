@@ -4,6 +4,7 @@ import com.special.IsoRunner.models.ChatMessage;
 import com.special.IsoRunner.models.LoginResponse;
 import com.special.IsoRunner.models.Note;
 import com.special.IsoRunner.models.TrainingItem;
+import com.special.IsoRunner.models.Weather;
 
 import java.util.Date;
 import java.util.List;
@@ -110,6 +111,13 @@ public interface ICallService {
                              @Field("FromTemperature") int pas3,
                              @Field("ToTemperature") int pas4,
                              @Field("WeatherConditions") String pas5);
+
+    @Headers({
+            "X-ApiKey: MagiczniCzarodzieje",
+    })
+    @GET("/api/GetCurrentWeather")
+    Call<Weather> GetWeather(@Query("latitude") float latitude,
+                             @Query("longitude") float longitude);
 
     public static final Retrofit retrofit = new Retrofit.Builder()
             .baseUrl("http://isorunnerservice.azurewebsites.net/")
